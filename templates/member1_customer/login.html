@@ -1,0 +1,48 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Royal Meal Login{% endblock %}
+
+{% block content %}
+
+<table border="1" cellpadding="5" cellspacing="5"
+       align="center" width="400" bordercolor="black">
+
+<tr>
+    <td>
+        <center>
+            <h1 style="color:blue;">Royal Meal</h1>
+            Login
+        </center>
+
+        <p>
+            Username: <input type="text" name="username"><br>
+            Number: <input type="text" name="number"><br>
+            Password: <input type="password" name="password"><br>
+            Forgot Password?<br>
+            <a href="#">Click Here</a><br>
+        </p>
+
+        <center>
+            <input type="submit" value="Login">
+            <button type="button" class="cancelbtn">Cancel</button>
+            <br><br>
+
+            <button type="button">
+                Create Account with Google
+                <a href="https://www.google.com">Click Here</a>
+            </button>
+
+            <p>
+                Terms and conditions
+                <a href="#">Click Here</a>
+            </p>
+        </center>
+    </td>
+</tr>
+
+</table>
+
+{% endblock %}
+
+

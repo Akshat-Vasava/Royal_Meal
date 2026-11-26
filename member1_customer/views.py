@@ -1,3 +1,7 @@
 from django.shortcuts import render
+def login_view(request):
+    return render(request, 'member1_customer/login.html')
 
-# Create your views here.
+def home(request):
+    return render(request, 'member1_customer/home.html')
+
