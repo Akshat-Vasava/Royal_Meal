@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Kitchen & Admin Portal{% endblock %}
+
+{% block content %}
+<div class="navigation">
+    <nav class="top-nav">
+        <p class="brand">The Royal Meal</p>
+        <div class="nav-actions">
+            <button onclick="window.location.href='#'">View Customer Storefront</button>
+            <button onclick="window.location.href='#'">Manager(Staff)</button>
+        </div>
+    </nav>
+</div>
+
+<div>
+    <nav class="sidebar">
+        <ul>
+            <li class="menu-title">Operations</li>
+            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+            <li><a href="{% url 'order_list' %}">Live Orders</a></li>
+            <li class="menu-title">Menu Management</li>
+            <li><a href="{% url 'menu_manage' %}">Dishes &amp; pricing</a></li>
+            <li><a href="{% url 'category_manage' %}">Categories</a></li>
+            <li class="menu-title">Reports &amp; Setup</li>
+            <li><a href="{% url 'sales_report' %}">COD Sales Report</a></li>
+            <li><a href="{% url 'restaurant_settings' %}">Restaurant Settings</a></li>
+        </ul>
+
+        <table class="cod-box">
+            <tr>
+                <td><strong>Cash on Delivery</strong><br>All customer payments collected upon doorstep delivery.</td>
+            </tr>
+        </table>
+    </nav>
+</div>
+<div class="dashboard-header">
+    <h1>Live Customer Orders</h1>
+    <p>Update preparation and delivery status in real-time for customer tracking.</p>
+
+
+
+    <button class="header-btn header-btn-orders" onclick="window.location.reload()">Refresh Orders</button>
+</div>
+
+<div class="main-section">
+    <div class="orders-filter-bar">
+        <form method="get" class="orders-search-form">
+            
+            <input type="text" name="q" value="{{ request.GET.q|default:'' }}" placeholder=" ">
+            <button type="submit" class="search-btn">Search</button>
+        </form>
+
+        <div class="status-filters">
+            <a href="{% url 'order_list' %}" class="filter-btn {% if not request.GET.status %}active{% endif %}">All (5)</a>
+            <a href="?status=placed" class="filter-btn {% if request.GET.status == 'placed' %}active{% endif %}">Order Placed</a>
+            <a href="?status=confirmed" class="filter-btn {% if request.GET.status == 'confirmed' %}active{% endif %}">Confirmed by Kitchen</a>
+            <a href="?status=preparing" class="filter-btn {% if request.GET.status == 'preparing' %}active{% endif %}">Food is Being Prepared</a>
+            <a href="?status=out_for_delivery" class="filter-btn {% if request.GET.status == 'out_for_delivery' %}active{% endif %}">Out for Delivery</a>
+            <a href="?status=delivered" class="filter-btn {% if request.GET.status == 'delivered' %}active{% endif %}">Delivered Successfully</a>
+            <a href="?status=cancelled" class="filter-btn {% if request.GET.status == 'cancelled' %}active{% endif %}">Cancelled</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

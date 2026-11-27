@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Kitchen & Admin Portal{% endblock %}
+
+{% block content %}
+<div class="navigation">
+    <nav class="top-nav">
+        <p class="brand">The Royal Meal</p>
+        <div class="nav-actions">
+            <button onclick="window.location.href='#'">View Customer Storefront</button>
+            <button onclick="window.location.href='#'">Manager(Staff)</button>
+        </div>
+    </nav>
+</div>
+
+<div>
+    <nav class="sidebar">
+        <ul>
+            <li class="menu-title">Operations</li>
+            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+            <li><a href="{% url 'order_list' %}">Live Orders</a></li>
+            <li class="menu-title">Menu Management</li>
+            <li><a href="{% url 'menu_manage' %}">Dishes &amp; pricing</a></li>
+            <li><a href="{% url 'category_manage' %}">Categories</a></li>
+            <li class="menu-title">Reports &amp; Setup</li>
+            <li><a href="{% url 'sales_report' %}">COD Sales Report</a></li>
+            <li><a href="{% url 'restaurant_settings' %}">Restaurant Settings</a></li>
+        </ul>
+
+        <table class="cod-box">
+            <tr>
+                <td><strong>Cash on Delivery</strong><br>All customer payments collected upon doorstep delivery.</td>
+            </tr>
+        </table>
+    </nav>
+</div>
+<div class="dashboard-header">
+    <h1>Restaurant Profile & Delivery Configuration</h1>
+    <p>Manage contact details, delivery fees, and Cash on Delivery messaging.</p>
+</div>
+
+<div class="main-section">
+    <div class="settings-card">
+        <div class="settings-card-header">
+            <h2>Restaurant Profile &amp; Delivery Configuration</h2>
+            <p>Member 2: Manage contact details, delivery fees, and Cash on Delivery messaging.</p>
+        </div>
+
+        <form method="post" class="settings-form">
+            {% csrf_token %}
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="restaurant_name">Restaurant Name</label>
+                    <input type="text" id="restaurant_name" name="restaurant_name" value="The Royal Meal">
+                </div>
+                <div class="form-group">
+                    <label for="contact_phone">Contact Phone Number</label>
+                    <input type="text" id="contact_phone" name="contact_phone" value="+91 7016403826">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="tagline">Tagline / Slogan</label>
+                <input type="text" id="tagline" name="tagline" value="Handcrafted Recipes &amp; Authentic Dining Delivered Hot to Your Door">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="contact_email">Contact Email</label>
+                    <input type="email" id="contact_email" name="contact_email" value="contact@royalMeal.com">
+                </div>
+                <div class="form-group">
+                    <label for="opening_hours">Opening Hours</label>
+                    <input type="text" id="opening_hours" name="opening_hours" value="11:00 AM - 11:00 PM (Monday - Sunday)">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Full Restaurant Address</label>
+                <textarea id="address" name="address" rows="3">102 Gourmet Boulevard, Food Street, City Centre</textarea>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="delivery_fee">Standard Delivery Fee (₹)</label>
+                    <input type="text" id="delivery_fee" name="delivery_fee" value="30.00">
+                </div>
+                <div class="form-group">
+                    <label for="free_delivery_threshold">Free Delivery Order Threshold (₹)</label>
+                    <input type="text" id="free_delivery_threshold" name="free_delivery_threshold" value="300.00">
+                    <small class="help-text">Orders above this amount enjoy zero delivery charge.</small>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="cod_note">Cash on Delivery Policy Note</label>
+                <input type="text" id="cod_note" name="cod_note" value="Pay with Cash or UPI QR Code directly to our delivery executive when food arrives at your door!">
+                <small class="help-text">Shown to customers on the checkout page.</small>
+            </div>
+
+            <div class="toggle-box">
+                <label>
+                    <input type="checkbox" name="accepting_orders" checked>
+                    Accepting Live Orders Online (Toggle Kitchen Open / Closed)
+                </label>
+            </div>
+
+            <div class="settings-footer">
+                <button type="submit" class="save-btn">Save Configuration</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

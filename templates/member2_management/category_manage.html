@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Kitchen & Admin Portal{% endblock %}
+
+{% block content %}
+<div class="navigation">
+    <nav class="top-nav">
+        <p class="brand">The Royal Meal</p>
+        <div class="nav-actions">
+            <button onclick="window.location.href='#'">View Customer Storefront</button>
+            <button onclick="window.location.href='#'">Manager(Staff)</button>
+        </div>
+    </nav>
+</div>
+
+<div>
+    <nav class="sidebar">
+        <ul>
+            <li class="menu-title">Operations</li>
+            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+            <li><a href="{% url 'order_list' %}">Live Orders</a></li>
+            <li class="menu-title">Menu Management</li>
+            <li><a href="{% url 'menu_manage' %}">Dishes &amp; pricing</a></li>
+            <li><a href="{% url 'category_manage' %}">Categories</a></li>
+            <li class="menu-title">Reports &amp; Setup</li>
+            <li><a href="{% url 'sales_report' %}">COD Sales Report</a></li>
+            <li><a href="{% url 'restaurant_settings' %}">Restaurant Settings</a></li>
+        </ul>
+
+        <table class="cod-box">
+            <tr>
+                <td><strong>Cash on Delivery</strong><br>All customer payments collected upon doorstep delivery.</td>
+            </tr>
+        </table>
+    </nav>
+</div>
+<div class="dashboard-header">
+    <h1>Cuisine Categories</h1>
+    <p>Organize menu items into intuitive categories (Starters, Main Course, Desserts, etc.).</p>
+
+   
+    <button class="header-btn header-btn-orders" onclick="window.location.href='{% url 'category_form' %}'">+ Add Category</button>
+</div>
+
+<div class="main-section">
+    <div class="category-table-card">
+        <table class="category-table">
+            <thead>
+                <tr>
+                    <th>Icon</th>
+                    <th>Category Name</th>
+                    <th>Slug</th>
+                    <th>Dishes Count</th>
+                    <th>Display Order</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="7" class="empty-state"> </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

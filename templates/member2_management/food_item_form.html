@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Kitchen & Admin Portal{% endblock %}
+
+{% block content %}
+<div class="navigation">
+    <nav class="top-nav">
+        <p class="brand">The Royal Meal</p>
+        <div class="nav-actions">
+            <button onclick="window.location.href='#'">View Customer Storefront</button>
+            <button onclick="window.location.href='#'">Manager(Staff)</button>
+        </div>
+    </nav>
+</div>
+
+<div>
+    <nav class="sidebar">
+        <ul>
+            <li class="menu-title">Operations</li>
+            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+            <li><a href="{% url 'order_list' %}">Live Orders</a></li>
+            <li class="menu-title">Menu Management</li>
+            <li><a href="{% url 'menu_manage' %}">Dishes &amp; pricing</a></li>
+            <li><a href="{% url 'category_manage' %}">Categories</a></li>
+            <li class="menu-title">Reports &amp; Setup</li>
+            <li><a href="{% url 'sales_report' %}">COD Sales Report</a></li>
+            <li><a href="{% url 'restaurant_settings' %}">Restaurant Settings</a></li>
+        </ul>
+
+        <table class="cod-box">
+            <tr>
+                <td><strong>Cash on Delivery</strong><br>All customer payments collected upon doorstep delivery.</td>
+            </tr>
+        </table>
+    </nav>
+</div>
+
+<div class="form-page-section">
+    <div class="settings-card">
+        <div class="settings-card-header header-flex">
+            <div>
+                <h2>Add New Dish</h2>
+                <p>Fill in the dish information to update the customer menu.</p>
+            </div>
+            <a href="{% url 'menu_manage' %}" class="back-btn">&larr; Back to Menu</a>
+        </div>
+
+        <form method="post" class="settings-form">
+            {% csrf_token %}
+
+            <div class="form-row">
+                <div class="form-group form-group-wide">
+                    <label for="dish_name">Dish Name <span class="req">*</span></label>
+                    <input type="text" id="dish_name" name="name" placeholder="e.g. Butter Paneer Tikka" required>
+                </div>
+                <div class="form-group">
+                    <label for="category">Category <span class="req">*</span></label>
+                    <select id="category" name="category" required>
+                        <option value="">---------</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="price">Price (₹) <span class="req">*</span></label>
+                    <input type="number" id="price" name="price" step="0.01" placeholder="Price in ₹" required>
+                </div>
+                <div class="form-group">
+                    <label for="prep_time">Preparation Time (mins)</label>
+                    <input type="number" id="prep_time" name="prep_time" value="20">
+                </div>
+                <div class="form-group">
+                    <label for="spice_level">Spice Level</label>
+                    <select id="spice_level" name="spice_level">
+                        <option value="mild">Mild</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="spicy">Spicy</option>
+                        <option value="extra_spicy">Extra Spicy</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="image_url">Image URL (Unsplash or direct image link)</label>
+                <input type="url" id="image_url" name="image_url" placeholder="https://images.unsplash.com/... or /static/images/dish.jpg">
+                <small class="help-text">Paste a web image URL or leave empty for a default placeholder.</small>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Dish Description <span class="req">*</span></label>
+                <textarea id="description" name="description" rows="4" placeholder="Delicious description of the dish" required></textarea>
+            </div>
+
+            <div class="toggle-box toggle-inline">
+                <label>
+                    <input type="checkbox" name="is_veg" checked>
+                    Pure Vegetarian Dish
+                </label>
+                <label>
+                    <input type="checkbox" name="in_stock" checked>
+                    In Stock (Available for ordering)
+                </label>
+                <label>
+                    <input type="checkbox" name="is_featured">
+                    Feature on Homepage
+                </label>
+            </div>
+
+            <div class="settings-footer footer-actions">
+                <button type="submit" class="save-btn">Save Dish to Menu</button>
+                <a href="{% url 'menu_manage' %}" class="cancel-btn">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

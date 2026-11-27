@@ -1,0 +1,654 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    color: #222;
+}
+
+/* Login Page */
+.login-page {
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    padding: 60px 16px;
+    box-sizing: border-box;
+}
+
+.login-box {
+    width: 400px;
+    max-width: 100%;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.login-box h1,
+.login-box .subtitle {
+    text-align: center;
+}
+
+.login-box .error-msg {
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+}
+
+.login-box label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"] {
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.login-box button:hover {
+    background-color: #555;
+}
+
+/* Top Navigation */
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: #333;
+    padding: 0 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.top-nav .brand {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.top-nav .nav-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.top-nav button {
+    background-color: #555;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.top-nav button:hover {
+    background-color: #666;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 220px;
+    background-color: #f4f4f4;
+    height: calc(100% - 60px);
+    position: fixed;
+    top: 60px;
+    left: 0;
+    overflow: auto;
+    padding: 16px 12px;
+    box-sizing: border-box;
+    border-right: 1px solid #ddd;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar .menu-title {
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #777;
+    margin: 16px 0 6px 10px;
+    letter-spacing: 0.5px;
+}
+
+.sidebar .menu-title:first-child {
+    margin-top: 0;
+}
+
+.sidebar li a {
+    display: block;
+    padding: 8px 10px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 6px;
+}
+
+.sidebar li a:hover {
+    background-color: #e2e2e2;
+}
+
+.sidebar .cod-box {
+    margin-top: 24px;
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.sidebar .cod-box td {
+    padding: 10px;
+    font-size: 12px;
+    color: #555;
+    line-height: 1.4;
+}
+
+/* Main Layout & Headers */
+.dashboard-header {
+    margin-left: 240px;
+    padding: 80px 20px 20px;
+}
+
+.header-btn {
+    background-color: #555;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    position: absolute;
+    top: 120px;
+}
+
+.header-btn:hover {
+    background-color: #333;
+}
+
+.header-btn-dish {
+    right: 150px;
+}
+
+.header-btn-orders {
+    right: 20px;
+}
+
+.main-section {
+    margin-left: 240px;
+    padding: 20px;
+}
+
+.form-page-section {
+    margin-left: 240px;
+    padding: 80px 20px 20px;
+}
+
+/* Stat Cards */
+.stats-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    flex: 1;
+    min-width: 180px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+.stat-card .stat-label,
+.report-stat-label {
+    font-size: 13px;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.stat-card .stat-value {
+    font-size: 26px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 6px;
+}
+
+.stat-card .stat-sub {
+    font-size: 12px;
+    color: #777;
+}
+
+/* Dashboard Inventory & Orders Cards */
+.inventory-card {
+    max-width: 380px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.inventory-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #222;
+    margin: 0 0 16px 0;
+}
+
+.inventory-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f4f4f4;
+    border-radius: 6px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.inventory-label {
+    color: #555;
+}
+
+.inventory-val {
+    font-size: 16px;
+    font-weight: bold;
+    color: #222;
+}
+
+.inventory-btn {
+    width: 100%;
+    background-color: #fff;
+    color: #222;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 10px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+.inventory-btn:hover {
+    background-color: #f4f4f4;
+}
+
+.orders-card {
+    position: absolute;
+    left: 660px;
+    right: 20px;
+    top: 370px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.orders-card table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.orders-card th {
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+    color: #222;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Filter & Search Bars */
+.orders-filter-bar,
+.menu-filter-bar {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 14px 16px;
+}
+
+.orders-filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.orders-search-form {
+    display: flex;
+    align-items: stretch;
+    flex: 1;
+    min-width: 240px;
+}
+
+.orders-search-form input[type="text"] {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-right: none;
+    border-radius: 6px 0 0 6px;
+    font-size: 14px;
+    outline: none;
+    min-width: 140px;
+}
+
+.orders-search-form .search-btn {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #333;
+    border-radius: 0 6px 6px 0;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.orders-search-form .search-btn:hover {
+    background-color: #555;
+}
+
+.status-filters {
+    display: flex;
+    align-items: stretch;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    text-align: center;
+}
+
+.filter-btn:hover {
+    background-color: #f4f4f4;
+}
+
+.filter-btn.active {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+}
+
+.menu-filter-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.menu-filter-form input[type="text"],
+.menu-filter-form select {
+    flex: 1;
+    min-width: 180px;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: #fff;
+    color: #222;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.menu-filter-form .filter-submit-btn {
+    min-width: 120px;
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.menu-filter-form .filter-submit-btn:hover {
+    background-color: #555;
+}
+
+/* Tables (Categories & Sales Report) */
+.category-table-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.report-table-header {
+    padding: 16px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #222;
+    border-bottom: 1px solid #ddd;
+}
+
+.category-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.category-table th {
+    padding: 14px 16px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #222;
+    border-bottom: 1px solid #ddd;
+    background-color: #fff;
+}
+
+.category-table td {
+    padding: 14px 16px;
+    font-size: 14px;
+    color: #555;
+    border-bottom: 1px solid #eee;
+}
+
+.category-table .empty-state {
+    text-align: center;
+    color: #777;
+    padding: 36px 16px;
+}
+
+/* Forms & Settings Cards */
+.settings-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.narrow-card {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.settings-card-header {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 14px;
+    margin-bottom: 20px;
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.settings-card-header h2 {
+    margin: 0 0 6px 0;
+    font-size: 20px;
+    color: #222;
+}
+
+.settings-card-header p {
+    margin: 0;
+    font-size: 13px;
+    color: #666;
+}
+
+.back-btn,
+.cancel-btn {
+    display: inline-block;
+    padding: 8px 14px;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.back-btn:hover,
+.cancel-btn:hover {
+    background-color: #f4f4f4;
+}
+
+.settings-form .form-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.form-row-align {
+    align-items: flex-end;
+}
+
+.settings-form .form-row .form-group {
+    flex: 1;
+    min-width: 220px;
+}
+
+.settings-form .form-row .form-group-wide {
+    flex: 2;
+}
+
+.settings-form .form-group {
+    margin-bottom: 16px;
+}
+
+.settings-form label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+.settings-form input[type="text"],
+.settings-form input[type="email"],
+.settings-form input[type="number"],
+.settings-form input[type="url"],
+.settings-form select,
+.settings-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    color: #222;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.settings-form .help-text {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    color: #666;
+}
+
+.toggle-box {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin: 8px 0 20px;
+}
+
+.toggle-inline {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.toggle-box label,
+.inline-checkbox label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    font-weight: normal;
+    font-size: 14px;
+    color: #222;
+    cursor: pointer;
+}
+
+.inline-checkbox label {
+    padding-bottom: 10px;
+}
+
+.settings-footer {
+    border-top: 1px solid #eee;
+    padding-top: 18px;
+}
+
+.footer-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.save-btn {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.save-btn:hover {
+    background-color: #555;
+}

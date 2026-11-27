@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Kitchen & Admin Portal{% endblock %}
+
+{% block content %}
+<div class="navigation">
+    <nav class="top-nav">
+        <p class="brand">The Royal Meal</p>
+        <div class="nav-actions">
+            <button onclick="window.location.href='#'">View Customer Storefront</button>
+            <button onclick="window.location.href='#'">Manager(Staff)</button>
+        </div>
+    </nav>
+</div>
+
+<div>
+    <nav class="sidebar">
+        <ul>
+            <li class="menu-title">Operations</li>
+            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+            <li><a href="{% url 'order_list' %}">Live Orders</a></li>
+            <li class="menu-title">Menu Management</li>
+            <li><a href="{% url 'menu_manage' %}">Dishes &amp; pricing</a></li>
+            <li><a href="{% url 'category_manage' %}">Categories</a></li>
+            <li class="menu-title">Reports &amp; Setup</li>
+            <li><a href="{% url 'sales_report' %}">COD Sales Report</a></li>
+            <li><a href="{% url 'restaurant_settings' %}">Restaurant Settings</a></li>
+        </ul>
+
+        <table class="cod-box">
+            <tr>
+                <td><strong>Cash on Delivery</strong><br>All customer payments collected upon doorstep delivery.</td>
+            </tr>
+        </table>
+    </nav>
+</div>
+
+<div class="form-page-section">
+    <div class="settings-card narrow-card">
+        <div class="settings-card-header header-flex">
+            <div>
+                <h2>Create Menu Category</h2>
+                <p>Create or edit a cuisine category for your menu.</p>
+            </div>
+            <a href="{% url 'category_manage' %}" class="back-btn">&larr; Back</a>
+        </div>
+
+        <form method="post" class="settings-form">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="category_name">Category Name <span class="req">*</span></label>
+                <input type="text" id="category_name" name="name" placeholder="e.g. Starters &amp; Appetizers" required>
+            </div>
+
+            <div class="form-group">
+                <label for="icon_class">FontAwesome Icon Class</label>
+                <input type="text" id="icon_class" name="icon_class" value="fa-utensils">
+                <small class="help-text">Examples: fa-bowl-food, fa-pizza-slice, fa-burger, fa-ice-cream, fa-mug-hot</small>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" rows="3" placeholder="Short category description"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="banner_url">Category Banner Image URL (Optional)</label>
+                <input type="url" id="banner_url" name="banner_url" placeholder="Category banner image URL">
+            </div>
+
+            <div class="form-row form-row-align">
+                <div class="form-group">
+                    <label for="display_order">Display Order</label>
+                    <input type="number" id="display_order" name="display_order" value="1">
+                </div>
+                <div class="form-group inline-checkbox">
+                    <label>
+                        <input type="checkbox" name="is_active" checked>
+                        Active &amp; Visible to Customers
+                    </label>
+                </div>
+            </div>
+
+            <div class="settings-footer footer-actions">
+                <button type="submit" class="save-btn">Save Category</button>
+                <a href="{% url 'category_manage' %}" class="cancel-btn">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
